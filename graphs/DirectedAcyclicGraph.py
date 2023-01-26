@@ -9,7 +9,7 @@ __all__ = [
 _N = typing.TypeVar('_N')
 
 
-class DirectedAcyclicGraph(typing.Generic[_N], DirectedGraph[_N]):
+class DirectedAcyclicGraph(DirectedGraph[_N], typing.Generic[_N]):
     def _add_link(self, origin: _N, target: _N) -> None:
         if origin == target or self.can_reach(target, origin):
             raise Exception(f"No loop allowed in a {self.__class__.__name__} structure.")

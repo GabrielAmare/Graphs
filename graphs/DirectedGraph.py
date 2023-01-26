@@ -7,7 +7,7 @@ __all__ = [
 _N = typing.TypeVar('_N')
 
 
-class DirectedGraph(typing.Generic[_N], typing.Mapping[_N, set[_N]]):
+class DirectedGraph(typing.Mapping[_N, set[_N]], typing.Generic[_N]):
     def __init__(self, __data: typing.Mapping[_N, typing.Iterable[_N]] | None = None):
         self._data: dict[_N, set[_N]] = {}
         
